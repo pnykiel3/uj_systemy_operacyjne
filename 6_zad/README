@@ -1,0 +1,44 @@
+Paweł Nykiel 2024
+===============================================================================
+W katalogu 6_zad zapisane jest rozwiązanie zadania 6
+Programy są napisane w języku C
+===============================================================================
+*6a (powielacz)
+Program pobiera l. procesów, l. sekcji krytycznych oraz synchronizację[0/1].
+Tworzy lub otwiera plik numer.txt, w którym zapisuje wartość startową "0".
+Inicjalizuje semafor, który będzie synchronizował. Tworzy tyle procesów
+ile podał użytkownik za pomocą fork(). Proces potomny poprzez execlp zmienia
+się w podprogram 6b. Powielacz czeka na zakończenie procesów potomnych. Porównuje
+wartość zapisaną w numer.txt z oczekiwaną wartością i wypisuje na ekran wynik
+-------------------------------------------------------------------------------
+*6b (podprogram)
+Podprogram pobiera l. sekcji krytycznych oraz synchronizacje [0/1]
+Otwiera stworzony wcześniej semafor i wypisuje jego adres z wartością początkową
+Gdy proces kończy prace podprogram używa sleep() (od 1 do 3 sekund). Opuszcza
+semafor i proces wchodzi w sekcję krytyczną. Program czyta zapisaną wartość
+z pliku pliku i wypisuje. Później zasypia, zwiększa te liczbę w pliku
+i przechodzi do kolejnej iteracji sekcji krytycznych.
+--------------------------------------------------------------------------------
+*funkcje (ciała funkcji używanych w dwóch powyższych programach)
+To biblioteka prostych funkcji do tworzenia, otwierania, uzyskiwania wartości,
+operowania, zamykania i usuwania semafora korzystających z odpowiednich
+funkcji systemowych/bibliotecznych i zawierających obsługę błędów.
+Funkcje do tworzenia i otwierania semafora zwracają jego adres w przypadku
+sukcesu, a wskaźnik NULL w przypadku błędu, natomiast pozostałe funkcje
+w przypadku sukcesu zwracają wartość 1, a w przypadku błędu wartość 0.
+Jest tez funkcja sprawdzajaca czy uzytkownik chce synchronizowac.
+===============================================================================
+URUCHOMIENIE PROGRAMU
+
+
+*aby skompilować programy można skorzystać z Makefile
+   -> make all
+*aby uruchomić program z przykładowymi argumentami
+  (2 procesy, 1 sekcja krytyczna, synchronizacja)
+   -> make run
+*aby usunąć objectfiles
+   -> make clean
+*aby spakować do tar.gz
+   -> make tar
+===============================================================================
+

@@ -1,0 +1,45 @@
+=============================================================================
+W katalogu 3_zad zapisane są rozwiązania zadania 3
+Programy są napisane w języku C
+
+=============================================================================
+*3a.c
+Program pobiera jako argumenty numer sygnału oraz liczbę int(1, 2 lub 3),
+która definiuje opcje radzenia sobie z sygnałem
+1 - domyślnie
+2 - ignorowanie
+3 - przechwytywanie
+=============================================================================
+*3b.c
+Program poprzez funkcje fork wytwarza procesy potomne, w których
+uruchamia program 3a. Proces macierzysty sprawdza czy istnieje proces
+potomny i jeśli tak, to przekazuje mu podany przez użytkownika sygnał.
+Proces potomny przekazuje status zakończenia sygnału, a macierzysty
+drukuje do na ekran.
+=============================================================================
+*3c.c
+Program inicjuje jedną instancję procesu potomnego, który jest
+skonfigurowany do ignorowania sygnałów. Ten proces staje się liderem grupy
+procesów i uruchamia program 3c2.c w swoim kontekście. Program 3c2
+tworzy kilka procesów potomnych, z których każdy wykonuje program 3a.
+Następnie proces macierzysty z 3c wysyła wybrany sygnał do swojego
+potomka. W trakcie wykonywania programu monitorowane są statusy potomków,
+na podstawie których generowane są odpowiednie informacje dotyczące
+zakończenia ich działania.
+=============================================================================
+URUCHOMIENIE PROGRAMÓW
+
+*aby skompilować wszystkie programy wystarczy skorzystać z Makefile
+	-> make all
+	
+*aby uruchomić program 3a, 3b należy
+	-> ./3a <NR_SYGNALU> <OPCJA>
+	-> ./3b <NR_SYGNALU> <OPCJA>
+	
+	(w programie 3b nie ma opcji ignorowania sygnału)
+
+*aby uruchomić program 3c należy
+	-> ./3c <NR_SYGNALU> <OPCJA> <ILOSC>
+	
+	<ILOSC> to liczba ile potomków procesu macierzystego ma oczekiwać.
+

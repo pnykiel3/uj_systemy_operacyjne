@@ -1,0 +1,15 @@
+Paweł Nykiel 2024
+=============================================================================
+W katalogu 4_zad zapisane jest rozwiązanie zadania 4
+Program jest napisany w języku C
+=============================================================================
+*SO_4.c
+Program tworzy proces potomny. Proces macierzysty pobiera tekst z pliku input.txt i przechowuje go w potoku natomiast proces potomny pobiera tekst z potoku i zapisuje go w pliku output.txt. Pliki input.txt oraz output.txt są identyczne po zakończeniu działania programu.
+=============================================================================
+URUCHOMIENIE PROGRAMU
+
+*aby skompilować i uruchomić program wystarczy skorzystać z Makefile
+	-> make
+	
+Po tym poleceniu program się skompiluje, uruchomi oraz po zakończeniu działania porówna pliki input.txt z output.txt
+=============================================================================

@@ -1,0 +1,28 @@
+Paweł Nykiel 2024
+=============================================================================
+W katalogu 5_zad zapisane jest rozwiązanie zadania 5
+Programy są napisane w języku C
+=============================================================================
+*producent
+Program pobiera nazwe pliku tekstowego wejścia oraz nazwe potoku.
+Otwiera plik wejściowy i potok nazwany, do którego kopiuje dane poprzez bufor.
+Po zakończeniu program zamyka potok i plik.
+-----------------------------------------------------------------------------
+*konsument
+Program pobiera nazwe pliku tekstowego wyjścia oraz nazwe potoku.
+Otwiera potok nazwany i plik wyjściowy, do którego kopiuje dane poprzez bufor.
+Po zakończeniu program zamyka potok i plik.
+------------------------------------------------------------------------------
+*5a
+Program tworzy potok nazwany oraz 2 procesy potomne.
+W nich wowołuje programy producent, konsument za pomocą execlp.
+Czeka na ich zakończenie i usuwa potok poprzez atexit.
+Jeśli użytkownik wywoła SIGINT handler za pomocą exit usunie potok.
+=============================================================================
+URUCHOMIENIE PROGRAMU
+
+*aby skompilować programy można skorzystać z Makefile
+	-> make all
+*aby uruchomić program oraz porównać pliki input i output wystarczy użyć
+	-> make run
+=============================================================================

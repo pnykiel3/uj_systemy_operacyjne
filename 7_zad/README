@@ -1,0 +1,41 @@
+Paweł Nykiel 2024
+===============================================================================
+W katalogu 7_zad zapisane jest rozwiązanie zadania 7
+Programy są napisane w języku C
+===============================================================================
+*7a Program główny
+	Program pobiera nazwę pliku z danymi wejścia.
+	Tworzy semafor producenta i konsumenta oraz obiekt pamięci dzielonej.
+	Tworzy 2 procesy za pomocą fork(), które przemienia w program	
+	producenta lub konsumenta poprzez execlp().
+	Czeka na zakończenie tych programów i usuwa stworzone obiekty
+	przy pomocyatexit. Ponadto posiada obsługę sygnału SIGINT
+-------------------------------------------------------------------------------
+*producent
+	Program pobiera dane z podanego pliku, aby później umieścić
+	je w buforze cyklicznym. Symuluje opóźnienia przy pomocy
+	funkcji sleep() oraz poprzez semafory stosuje synchronizację.
+-------------------------------------------------------------------------------
+*konsument
+	Program pobiera dane z bufora cyklicznego, aby później umieścić
+	je w pliku output. Symuluje opóźnienia przy pomocy
+	funkcji sleep() oraz poprzez semafory stosuje synchronizację.
+--------------------------------------------------------------------------------
+*funkcje (ciała funkcji używanych w dwóch powyższych programach)
+	Program z zadania 6 wzbogacony o analogiczne funckje
+	do obsługi pamięci dzielonej.	
+===============================================================================
+URUCHOMIENIE PROGRAMU
+
+*aby skompilować programy można skorzystać z Makefile
+   -> make all
+*aby uruchomić program z przykładowym argumentem
+  (plik wejścia to: "input")
+   -> make run
+*aby usunąć objectfiles
+   -> make clean
+*aby spakować do tar.gz
+   -> make tar
+===============================================================================
+
+
